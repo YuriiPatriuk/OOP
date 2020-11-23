@@ -1,0 +1,5 @@
+﻿  Car.cpp
+  lesson 4.cpp
+C:\Users\Dev\Desktop\OOP\lesson 4\lesson 4\lesson 4.cpp(10,12): warning C4244: 'argument': conversion from 'time_t' to 'unsigned int', possible loss of data
+  Generating Code...
+  lesson 4.vcxproj -> C:\Users\Dev\Desktop\OOP\lesson 3\x64\Debug\lesson 4.exe

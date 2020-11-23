@@ -11,13 +11,16 @@ public:
 	const char* getGenderStr() const;
 	Gender getGender() const;
 	size_t getId() const;
+	const size_t& getCountMarks() const;
 	static size_t getCountOfStudents(); //static method!!
 	static int compareStudentsByRate(const Student& one,const Student& two);
 	double getAverageMark() const;
 	static int compareStudentsByName(const Student& one, const Student& two);
+	Student& operator = (const Student & other);
 
-	Student(const char* name, Gender gender=Gender::UNDEFINED);
+	explicit Student(const char* name, Gender gender=Gender::UNDEFINED);
 	Student();
+	Student(const Student & other); // copy ctor
 	~Student();
 private:
 	size_t id = 0;
@@ -26,10 +29,17 @@ private:
 	size_t* marks = 0;
 	Gender gender = Gender::UNDEFINED;
 	static size_t countStudents; // static field, one for all class objects
+	//help method for copy marks
+	void setOtherMarks(const Student& other);//size_t* otherMarks, size_t size);
 };
 inline	const char* Student::getName() const
 {
 	return name;
+}
+
+inline  const size_t& Student::getCountMarks() const
+{
+	return countMarks;
 }
 
 inline void Student::setGender(Gender gender)

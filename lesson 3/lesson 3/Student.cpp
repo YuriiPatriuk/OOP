@@ -29,6 +29,13 @@ Student::Student(const char* name, Gender gender)
 Student::Student()
 	: Student("Noname")
 {}
+Student::Student(const Student & other)
+{
+	setName(other.name);
+	setOtherMarks(other);
+	gender = other.gender;
+	id = ++countStudents;
+}
 Student::~Student()
 {
 	cout << "Dtor for " << (name != nullptr ? name : "Empty") << endl;
@@ -43,6 +50,19 @@ Student::~Student()
 		marks = nullptr;
 	}
 	--countStudents;
+}
+void Student::setOtherMarks(const Student& other)
+{
+	if (this->marks!=nullptr)
+	{
+		delete[] marks;
+	}
+	/*countMarks = other.countMarks;*/
+	marks = new size_t[countMarks = other.countMarks];
+	for (size_t i = 0; i < countMarks; i++)
+	{
+		marks[i] = other.marks[i];
+	}
 }
 void Student::addMark(size_t mark)
 {
@@ -105,6 +125,20 @@ double Student::getAverageMark() const
 int Student::compareStudentsByName(const Student& one, const Student& two)
 {
 	return strcmp(one.name, two.name);
+}
+
+Student& Student::operator=(const Student& other)
+{
+	if (this != &other)
+	{
+		setName(other.name);
+		setOtherMarks(other);
+		gender = other.gender;
+		id = other.id;
+	}
+	else
+		cout << "Warning!!" << endl;
+	return *this;
 }
 
 //strcmp()
