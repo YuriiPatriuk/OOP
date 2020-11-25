@@ -4,19 +4,19 @@ using namespace std;
 int main()
 {
 	Fraction one;
-	one.setNum(2);
-	one.setDenom(3);
+	Fraction two(-3,4);
+	Fraction three;
+	one.setNum(7);
+	one.setDenom(-8);
 	one.print();
-
-	Fraction two;
-	two.setNum(5);
-	two.setDenom(7);
 	two.print();
+	one.comparison(two);
 
-	(one.mult(two)).print();
-	Fraction three = one.mult(two);
+	three = one.division(two);
 	three.print();
-
+	three.abbreviation();
+	three.print();
+	
 	return 0;
 }
 

@@ -5,7 +5,7 @@ using namespace std;
 
 //Реализуйте класс “Студент”.Необходимо хранить в переменных - членах класса : ФИО, дату рождения, 
 //контактный телефон, город, страну, название учебного заведения, город и страну(где находится учебное заведение), 
-//номер группы.Реализуйте функции - члены класса для ввода данных, вывода данных, реализуйте аксессоры для доступа 
+//номер группы.Реализуйте функции - члены класса для ввода данных+, вывода данных+, реализуйте аксессоры для доступа 
 //к отдельным переменным - членам.
 
 class Student 
@@ -55,7 +55,7 @@ public:
 				cin >> month;
 				cout << "Enter year: ";
 				cin >> year;
-				if (day > 0 && day <= 28 && month > 0 && month <= 12 && year>CURR_YEAR-18)
+				if (day > 0 && day <= 28 && month > 0 && month <= 12 && year<=CURR_YEAR-18)
 				{
 					cout << "Enter date successfull!" << endl;
 					break;
@@ -65,9 +65,9 @@ public:
 					cout << "Enter date successfull!" << endl;
 					break;
 				}
-				if (day<0 || day>28) cout << "DAY ERROR ";
-				if (month <= 0 || month > 12) cout << "MONTH ERROR ";
-				if (year < 0 || year > CURR_YEAR-18) cout << "YEAR ERROR ";
+				if (day<0 || day>28) cout << "DAY ERROR\n";
+				if (month <= 0 || month > 12) cout << "MONTH ERROR \n";
+				if (year < 0 || year > CURR_YEAR-18) cout << "YEAR ERROR \n";
 			} while (true);
 		}
 		void print()
@@ -82,10 +82,35 @@ public:
 		cin >> surname;
 		cout << "Enter fathername: ";
 		cin >> fathername;
-		cout << "Enter date of birthday: ";
+		cout << "Enter date of birthday: \n";
 		date.input();
 		cout << "Enter number: ";
 		cin >> number;
+		cout << "Enter city: ";
+		cin >> city;
+		cout << "Enter country: ";
+		cin >> country;
+		cout << "Enter your univercity: ";
+		cin >> univercity;
+		cout << "Enter city of your univercity: ";
+		cin >> cityUnivercity;
+		cout << "Enter country of your univercity: ";
+		cin >> countryUnivercity;
+		cout << "Enter group number: ";
+		cin >> numberGroup;
+	}
+	void print() {
+		cout << "Name: "<<name<<endl;
+		cout << "Surname: "<<surname<<endl;
+		cout << "Fathername: "<<fathername<<endl;
+		date.print();
+		cout << "Number: "<<number<<endl;
+		cout << "City: "<<city<<endl;
+		cout << "Country: "<<country<<endl;
+		cout << "Univercity: "<<univercity<<endl;
+		cout << "City of univercity: "<<cityUnivercity<<endl;
+		cout << "Country of univercity: "<<countryUnivercity<<endl;
+		cout << "Group number: "<<numberGroup<<endl;
 	}
 	void setName(const string& newName)
 	{
@@ -191,6 +216,37 @@ public:
 		}
 	}
 
+	string getName() {
+		return name;
+	}
+	string getSurname() {
+		return surname;
+	}
+	string getFathername() {
+		return fathername;
+	}
+	string getNumber() {
+		return number;
+	}
+	string getCity() {
+		return city;
+	}
+	string getCountry() {
+		return country;
+	}
+	string getUnivercity() {
+		return univercity;
+	}
+	string getCityUnivercity() {
+		return cityUnivercity;
+	}
+	string getCountryUnivercity() {
+		return countryUnivercity;
+	}
+	string getNumberGroup() {
+		return numberGroup;
+	}
+
 private:
 	string name;
 	string surname;
@@ -217,6 +273,12 @@ private:
 
 int main() {
 	string str;
+	Student student;
+	student.input();
+	cout << endl;
+	student.print();
+
+	cout<<"Name: "<<student.getName() << endl;
 
 	return 0;
 }
